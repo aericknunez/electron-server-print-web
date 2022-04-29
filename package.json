@@ -1,0 +1,31 @@
+{
+  "name": "hibrido",
+  "version": "1.0.0",
+  "description": "Servidor de impresiones remoto",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Hibrido",
+    "Server",
+    "Printer",
+    "Onine"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^18.0.0",
+    "electron-builder": "^22.14.13"
+  },
+  "build": {
+    "appId": "com.hibrido.app",
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  }
+}
