@@ -21,16 +21,15 @@
             <div class="card-body">
 
                 <div id="cargando">
-                    <img src="https://www.lovexair.com/addons/default/themes/toucantechV3/img/loading_animation.gif" alt="">
+                    <img src="img/loading.gif" width="120" alt="">
                 </div>
 
 
                 <div id="idenesperando">
                     <div>
                         <h5 class="card-title">Esperando...</h5>
-                        <img src="https://flevix.com/wp-content/uploads/2019/12/256x256-1.svg" width="120" alt="">
-                        <!-- <img src="https://cdn.dribbble.com/users/2760451/screenshots/5783614/printer.gif" alt="">
-                        <img src="https://hrmis.zalegoacademy.ac.ke/schoolstaff/public/images/print.gif" alt=""> -->
+                        <img src="img/printer.png" width="120" alt="">
+                        <!-- <img src="https://hrmis.zalegoacademy.ac.ke/schoolstaff/public/images/print.gif" alt=""> -->
                     </div>
                     <a id="btn-imprimir" class="btn btn-success">Buscar Impresiones</a>
                 </div>    
@@ -38,7 +37,7 @@
                 <div id="idenimprimiendo">
                     <div>
                         <h5 class="card-title">Imprimiendo</h5>
-                        <img src="https://hrmis.zalegoacademy.ac.ke/schoolstaff/public/images/print.gif" width="120" alt="">
+                        <img src="img/printer.gif" width="120" alt="">
                     </div>
                     <a href="#" class="btn btn-danger">Espere</a>
                 </div>   
@@ -47,7 +46,7 @@
                 <div id="sindatos">
                     <div>
                         <h5 class="card-title">Sin datos</h5>
-                        <img src="https://rcportblair.rotaryindia.org/images/opps-error.png" width="120" alt="">
+                        <img src="img/opps-error.png" width="120" alt="">
                         <p>No se encuentran impresiones pendientes</p>
                     </div>
                 </div> 
@@ -181,6 +180,11 @@
         /// pusher status
         pusher.connection.bind('state_change', function(states) {
         // states = {previous: 'oldState', current: 'newState'}
+        // $('#status').text(JSON.stringify(states));
+        if (states.previous == "unavailable" && states.current == "connected") {
+            obtenerCantidad();
+            console.log("Llamando a la api para los datos")
+        }
         $('#status').text("This server is " + states.current);
         });
 
