@@ -2,7 +2,7 @@
   "name": "hibrido",
   "version": "1.0.0",
   "description": "Servidor de impresiones remoto",
-  "main": "main.js",
+  "main": "mainToTray.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -13,7 +13,7 @@
     "Hibrido",
     "Server",
     "Printer",
-    "Onine"
+    "Online"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
