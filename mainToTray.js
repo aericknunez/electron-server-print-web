@@ -65,18 +65,7 @@ function createTray() {
         {
             label: 'Salir', click: function () {
                 app.isQuiting = true;
-                const response = dialog.showMessageBoxSync(mainWindow, {
-                    type: 'warning',
-                    title: 'Cerrar aplicación',
-                    message: '¿Estás seguro que quieres cerrar la aplicación? Al Cerrar ya las impresiones remotas ya no seguiran ejecutandose',
-                    buttons: ['Cancel', 'Yes']
-                  });
-              
-                  if (response === 0) {
-                     mainWindow.show();
-                    } else {
-                      app.quit()
-                    }
+                app.quit()
             }
         }
     ]);
@@ -95,18 +84,7 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        const response = dialog.showMessageBoxSync(mainWindow, {
-            type: 'warning',
-            title: 'Cerrar aplicación',
-            message: '¿Estás seguro que quieres cerrar la aplicación? Al Cerrar ya las impresiones remotas ya no seguiran ejecutandose',
-            buttons: ['Cancel', 'Yes']
-          });
-      
-          if (response === 0) {
-              createMainWindow();
-            } else {
-              app.quit()
-            }
+            app.quit()
     }
 });
 
